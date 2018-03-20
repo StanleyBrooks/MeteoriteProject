@@ -48,6 +48,7 @@ def meteorite_frequency_table():
     create_table_meteorite_frequency()
     populate_data()
 
+
 def close_sqlite_db():
     sql.commit()
     sql.close()

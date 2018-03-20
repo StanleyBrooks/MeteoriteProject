@@ -4,6 +4,8 @@ from create_sql import meteorite_frequency_table
 from create_sql import close_sqlite_db
 
 
+from graphs import visualizations
+
 
 def main():
 
@@ -37,6 +39,7 @@ def main():
 
     close_sqlite_db()
 
+    visualizations()
 
 
 if __name__ == '__main__':
