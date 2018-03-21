@@ -49,17 +49,16 @@ def meteorite_frequency_table():
     populate_data()
 
 
-def meteorite_mass_table():
+"""def meteorite_mass_table():
 
     def create_table_meteorite_mass():
-        cur.execute('''CREATE TABLE meteorite_mass (year DATETIME, mass REAL, mass_kg REAL);''')
-    
-    #Created a new column for mass_kg = (mass(g) / 1000)
+        cur.execute('''CREATE TABLE meteorite_mass (year DATETIME, mass REAL, sum REAL);''')
+
     def populate_data():
-        cur.execute('''INSERT INTO meteorite_mass SELECT year, mass, (mass / 1000) AS mass_kg FROM meteorite_data;''')
+        cur.execute('''INSERT INTO meteorite_mass SELECT year, SUM((mass / 1000)) AS total_mass_kg FROM meteorite_data GROUP BY year ORDER BY total_mass_kg desc;''')
 
     create_table_meteorite_mass()
-    populate_data()
+    populate_data()"""
 
 
 def close_sqlite_db():
