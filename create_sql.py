@@ -11,6 +11,7 @@ reader = csv.reader(csv_file)
 
 def create_sqlite_table():
 
+    cur.execute('''DROP TABLE IF EXISTS meteorite_data''')
     cur.execute('''CREATE TABLE IF NOT EXISTS meteorite_data
                 (name TEXT UNIQUE, 
                 meteo_id INTIGER PRIMARY KEY,
@@ -40,6 +41,7 @@ def clean_empty_values():
 def meteorite_frequency_table():
 
     def create_table_meteorite_frequency():
+        cur.execute('''DROP TABLE IF EXISTS meteorite_frequency''')
         cur.execute('''CREATE TABLE meteorite_frequency (year DATETIME, count INTIGER);''')
 
     def populate_data():
@@ -47,18 +49,6 @@ def meteorite_frequency_table():
 
     create_table_meteorite_frequency()
     populate_data()
-
-
-"""def meteorite_mass_table():
-
-    def create_table_meteorite_mass():
-        cur.execute('''CREATE TABLE meteorite_mass (year DATETIME, mass REAL, sum REAL);''')
-
-    def populate_data():
-        cur.execute('''INSERT INTO meteorite_mass SELECT year, SUM((mass / 1000)) AS total_mass_kg FROM meteorite_data GROUP BY year ORDER BY total_mass_kg desc;''')
-
-    create_table_meteorite_mass()
-    populate_data()"""
 
 
 def close_sqlite_db():

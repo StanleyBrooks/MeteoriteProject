@@ -1,12 +1,10 @@
 from create_sql import create_sqlite_table
 from create_sql import clean_empty_values
 from create_sql import meteorite_frequency_table
-#from create_sql import meteorite_mass_table
-
 from create_sql import close_sqlite_db
 
 from graphs import visualizations_year_frequency
-#from graphs import visualizations_year_mass
+from graphs import visualizations_year_max_mass
 
 
 def main():
@@ -36,22 +34,14 @@ def main():
     print('Completed successfully')
     print('=' * 30)
 
-    print('Creating meteorite_mass table...')
-    print('Populating table and performing count operation...')
-
-    #meteorite_mass_table()
-
     print('Completed successfully')
     print('=' * 30)
-
-    #scatter plot needs to be refactored using sql instead of pandas
-    #scatter_plot(read_csv_with_pandas())
 
     close_sqlite_db()
 
     visualizations_year_frequency()
 
-    #visualizations_year_mass()
+    visualizations_year_max_mass()
 
 
 if __name__ == '__main__':
