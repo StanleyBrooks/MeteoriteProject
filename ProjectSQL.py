@@ -1,8 +1,9 @@
 from create_sql import create_sqlite_table
 from create_sql import clean_empty_values
 from create_sql import meteorite_frequency_table
-from create_sql import close_sqlite_db
+from create_sql import meteorite_mass_table
 
+from create_sql import close_sqlite_db
 
 from graphs import visualizations
 
@@ -31,6 +32,14 @@ def main():
     
     meteorite_frequency_table()
     
+    print('Completed successfully')
+    print('=' * 30)
+
+    print('Creating meteorite_mass table...')
+    print('Populating table and performing count operation...')
+
+    meteorite_mass_table()
+
     print('Completed successfully')
     print('=' * 30)
 

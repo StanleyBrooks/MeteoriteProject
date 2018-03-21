@@ -8,8 +8,8 @@ csv_file = open('Meteorite_Landings.csv','r', errors='ignore')
 next(csv_file, None)
 reader = csv.reader(csv_file)
 
-def create_sqlite_table():
 
+def create_sqlite_table():
 
     cur.execute('''CREATE TABLE IF NOT EXISTS meteorite_data
                 (name TEXT UNIQUE, 
@@ -46,6 +46,19 @@ def meteorite_frequency_table():
         cur.execute('''INSERT INTO meteorite_frequency SELECT year, count(*) FROM meteorite_data GROUP BY year ORDER BY COUNT(*) desc;''')
 
     create_table_meteorite_frequency()
+    populate_data()
+
+
+def meteorite_mass_table():
+
+    def create_table_meteorite_mass():
+        cur.execute('''CREATE TABLE meteorite_mass (year DATETIME, mass REAL, mass_kg REAL);''')
+    
+    #Created a new column for mass_kg = (mass(g) / 1000)
+    def populate_data():
+        cur.execute('''INSERT INTO meteorite_mass SELECT year, mass, (mass / 1000) AS mass_kg FROM meteorite_data;''')
+
+    create_table_meteorite_mass()
     populate_data()
 
 
