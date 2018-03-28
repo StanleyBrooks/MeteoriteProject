@@ -3,16 +3,16 @@
 
 ###### This project requires:
 
-* bokeh - to graph data
-* csv - to read source file
-* json - for the world graph (json data creates country borders)
-* matplotlib - to graph data
-* numpy - to help process and graph data
-* pandas - to help clean and graph data
-* requests - used to gather json data from website
-* sqlite3 - to create and interact with a sqlite database
+> bokeh - to graph data
+> csv - to read source file
+> json - for the world graph (json data creates country borders)
+> matplotlib - to graph data
+> numpy - to help process and graph data
+> pandas - to help clean and graph data
+> requests - used to gather json data from website
+> sqlite3 - to create and interact with a sqlite database
 
-* additional notes: 
+additional notes: 
 
 > Put the following files in the same dir:
 > 1) create_sql.py
