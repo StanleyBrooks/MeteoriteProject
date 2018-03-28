@@ -15,12 +15,12 @@
 * additional notes: 
 
 > * put the following files in the same dir:
-1) create_sql.py
-2) graphs.py
-3) Meteorite_Landings.csv
-4) ProjectRUN.py
-5) world_map.py
-6) README.MD
+> 1) create_sql.py
+> 2) graphs.py
+> 3) Meteorite_Landings.csv
+> 4) ProjectRUN.py
+> 5) world_map.py
+> 6) README.MD
 
 * there must also be a folder named 'graphs' in the main directory, it can be empty
 
