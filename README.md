@@ -55,15 +55,15 @@ AND
 #### 3)  You must include a Python script used to fetch data from a data source and load it into your SQL database
 
 * This snippet of code creates a meteo.db sqlite database opens the csv file in read mode and passes it to a csv reader
-
-        `sql = sqlite3.connect('meteo.db')
+```python
+        sql = sqlite3.connect('meteo.db')
         cur = sql.cursor()
         csv_file = open('Meteorite_Landings.csv','r', errors='ignore')
         next(csv_file, None)
-        reader = csv.reader(csv_file)`
+        reader = csv.reader(csv_file)
 
-        `def create_sqlite_table():
-
+        def create_sqlite_table():
+```
 
 * This snippet of code creates the main table (meteorite_data) from the csv file.  There are also several other smaller tables created from the information in this table like (count and total_mass_kg)
 
