@@ -67,7 +67,8 @@ AND
 
 * This snippet of code creates the main table (meteorite_data) from the csv file.  There are also several other smaller tables created from the information in this table like (count and total_mass_kg)
 
-        `cur.execute('''CREATE TABLE IF NOT EXISTS meteorite_data
+```python
+        cur.execute('''CREATE TABLE IF NOT EXISTS meteorite_data
                     (name TEXT UNIQUE, 
                     meteo_id INTIGER PRIMARY KEY,
                     nametype TEXT, 
@@ -80,48 +81,57 @@ AND
                     GeoLocation REAL);''')
 
         for row in reader:
-            cur.execute('''INSERT INTO meteorite_data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', row)`
+            cur.execute('''INSERT INTO meteorite_data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', row)
 
-
+```
 #### 4)  You must include a Python script to retrieve the data from your SQL database into a Python object
 
 * This is primarily located in the graphs.py file that is included.  Data is taken from the SQL database and loaded into a pandas python object (dataframe) to be further processed(cleaned) and passed to matplotlib and bokeh for graphing
 
-        `conn = sqlite3.connect('meteo.db')
+```python
+        conn = sqlite3.connect('meteo.db')
         meteorites = pd.read_sql_query('SELECT year, count FROM meteorite_frequency ORDER BY year DESC;', conn)
-        conn.close()`
+        conn.close()
 
-        `last_50_years = meteorites[0:50]`
-
+        last_50_years = meteorites[0:50]
+```
 
 #### 5)  You must include a Python script to modify your data so as to prepare it for visualization
 
 * This happens in 2 places in the project.  The first time is in the create_sql.py file (specifically in the function clean_empty_values) and is done through sqlite querries to remove rows with null values so the csv data can be succesfully passed to the sqlite database (meteo.db)
-
-        `cur.execute('''DELETE FROM meteorite_data WHERE(name IS NULL OR name  = '') 
+```python
+        cur.execute('''DELETE FROM meteorite_data WHERE(name IS NULL OR name  = '') 
                         OR (mass IS NULL OR mass = '') OR (year IS NULL OR year = '') 
                         OR (reclat IS NULL OR reclat = '') OR (reclong IS NULL OR reclong = '') 
-                        OR (GeoLocation IS NULL OR GeoLocation = '');''')`
+                        OR (GeoLocation IS NULL OR GeoLocation = '');''')
+```
 
 
 
 * The second time this happens is after the data is pulled out of the sqlite database and inserted into a python object (pandas dataframe) in graphs.py.  This is done to further clean the data in preperation for graphing.  Most of the issues I ran into were with the date column, which contained dates that all started with 1/1/(year).  The month and day paramaters were just place holders, so I employed several stratagies to remove the superfluous data.
             
 * Convert year to datetime then remove NA values
-        `meteorites['year'] = pd.to_datetime(meteorites['year'], errors='coerce')
-        meteorites = meteorites.dropna()`
+```python
+        meteorites['year'] = pd.to_datetime(meteorites['year'], errors='coerce')
+        meteorites = meteorites.dropna()
+```
 
 * This grabs just the year from the year column since the data seems to be all in the format 1/1/year
-        `meteorites['year_only'] = meteorites.year.map(lambda x: x.strftime('%Y'))`
+```python
+        meteorites['year_only'] = meteorites.year.map(lambda x: x.strftime('%Y'))
+```
 
 * Use pandas to convert strings into numbers(int)
-        `meteorites['year_only'] = meteorites['year_only'].astype(int)
-        meteorites['count'] = meteorites['count'].astype(int)`
+```python
+        meteorites['year_only'] = meteorites['year_only'].astype(int)
+        meteorites['count'] = meteorites['count'].astype(int)
+```
 
-* This is to get rid of a lingering incorrect year from the future
-        `meteorites = meteorites[meteorites.year_only <= 2018]`
+* This is to get rid of a lingering incorrect year from the future\
+```python
+        meteorites = meteorites[meteorites.year_only <= 2018]
 
-
+```
 #### 6)  Visualize the results of your analysis using Matplotlib, Seaborn, Bokeh or another Python Data Visualization library. Your results cannot be a plaintext representation and you are encouraged to explore a visualization approach that clearly supports a conclusion/result of the analysis of your data.
 
 * Multiple graphs are made using matplotlib and bokeh, they are sent to the /graphs directory when the script is ran.
