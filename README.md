@@ -12,9 +12,21 @@
 * requests - used to gather json data from website
 * sqlite3 - to create and interact with a sqlite database
 
-* additional notes: there must also be a folder named 'graphs' in the main directory, it can be empty
+* additional notes: 
 
-* Run the script ProjectRUN.py to run program
+* put the following files in the same dir:
+1) create_sql.py
+2) graphs.py
+3) Meteorite_Landings.csv
+4) ProjectRUN.py
+5) world_map.py
+6) README.MD
+
+* there must also be a folder named 'graphs' in the main directory, it can be empty
+
+* RUN the script ProjectRUN.py
+
+* The terminal will give you further information on script, create sql database and output graphs to ./graphs
 
 
 #### Outline of Project & Project Requirements
