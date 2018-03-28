@@ -1,6 +1,22 @@
 ## Meteorite Landings Data Analysis
 #### CodeLouisville Project - Python for Data
 
+###### This project requires:
+
+* bokeh - to graph data
+* csv - to read source file
+* json - for the world graph (json data creates country borders)
+* matplotlib - to graph data
+* numpy - to help process and graph data
+* pandas - to help clean and graph data
+* requests - used to gather json data from website
+* sqlite3 - to create and interact with a sqlite database
+
+* additional notes: there must also be a folder named 'graphs' in the main directory, it can be empty
+
+* Run the script ProjectRUN.py to run program
+
+
 #### Outline of Project & Project Requirements
 
 #### 1)  Problem that I am analyzing: 
@@ -19,19 +35,6 @@ From this data I have primarily used the information about the date, mass and lo
 how many meteorites fall each year
 The combined mass(kg) of the meteorites
 Geographic Locations of each meteorite
-
-###### This project requires:
-
-* bokeh - to graph data
-* csv - to read source file
-* json - for the world graph (json data creates country borders)
-* matplotlib - to graph data
-* numpy - to help process and graph data
-* pandas - to help clean and graph data
-* requests - used to gather json data from website
-* sqlite3 - to create and interact with a sqlite database
-
-* additional notes: there must also be a folder named 'graphs' in the main directory, it can be empty
 
 
 #### 2)  Include SQL database where your data will be stored and manipulated.  You need to include a script that sets up/creates your database
@@ -140,8 +143,6 @@ CONCLUSION:(outline)
 
 
 # Final Todo list:
-
-
 
 Currently working on:
 * conclusion
