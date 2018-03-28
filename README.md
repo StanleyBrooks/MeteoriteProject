@@ -8,25 +8,26 @@
 > 3) json - for the world graph (json data creates country borders)
 > 4) matplotlib - to graph data
 > 5) numpy - to help process and graph data
-> 6) pandas - to help clean and graph data
-> 7) requests - used to gather json data from website
+> 6) pandas - to help clean and graph data (I found the pandas dataframe to be very helpful while cleaning and interacting with the dataset)
+> 7) requests - used to gather json data from website (for bokeh patches of country boarders)
 > 8) sqlite3 - to create and interact with a sqlite database
 
-additional notes: 
+How to run the project: 
 
-> Put the following files in the same dir:
+1) > Put the following files in the same dir:
 > 1) create_sql.py
 > 2) graphs.py
-> 3) Meteorite_Landings.csv
+> 3) Meteorite_Landings.csv -This is a copy of the dataset that be downloaded at https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
+> This csv file is not edited during the process, it is loaded into a sqlite database where all cleaning and calculations take place.
 > 4) ProjectRUN.py
 > 5) world_map.py
 > 6) README.MD
 
-* there must also be a folder named 'graphs' in the main directory, it can be empty
+2) * there must also be a folder named 'graphs' in the main directory, it can be empty
 
-* RUN the script ProjectRUN.py
+3) * RUN the script ProjectRUN.py
 
-* The terminal will give you further information on script, create sql database and output graphs to ./graphs
+4) * The terminal will give you further information on script, create an sqlite database and output graphs to ./graphs
 
 
 #### Outline of Project & Project Requirements
@@ -142,8 +143,11 @@ CONCLUSION:(outline)
 * Are individual meteorites heavier now then they have been in the past?
 - Nope, although there are a couple of years where some really giant ones hit (assuming that the data is correct(could be incorrect entry, more data bais))
 
+
 * Are Meteorite Landings equally distributed worldwide?
 - Yes
+
+
 -Reasons for discrepancies could be:
     some countries are better able to record meteorites in a percise way
     data collecting bias
