@@ -125,7 +125,7 @@ CONCLUSION:(outline)
 
 
 * Are individual meteorites heavier now then they have been in the past?
-- Nope
+- Nope, although there are a couple of years where some really giant ones hit (assuming that the data is correct(could be incorrect entry, more data bais))
 
 * Are Meteorite Landings equally distributed worldwide?
 - Yes
@@ -138,19 +138,20 @@ CONCLUSION:(outline)
 
 
 
+##############################################################################################################
+#######                                        Final Todo list:                                         ######
+##############################################################################################################
 
 
-
-
-
-
-
-
-
-
-
-
-
-currently working on:
+Currently working on:
         conclusion
+        update readme to include world_map.py(bokeh) information and source credit
         pep8 everything
+        more informative comments to explain all of the pieces
+        
+Questions for class:
+        what are the teachers looking for?
+        appropriate conclusion?
+        --how to give proper credit (bokeh world map patches)
+        --do I need a script to create ./graphs
+        --appropriate output
