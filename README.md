@@ -144,14 +144,14 @@ CONCLUSION:(outline)
 
 
 Currently working on:
-        conclusion
-        update readme to include world_map.py(bokeh) information and source credit
-        pep8 everything
-        more informative comments to explain all of the pieces
+* conclusion
+* update readme to include world_map.py(bokeh) information and source credit
+* pep8 everything
+* more informative comments to explain all of the pieces
         
 Questions for class:
-        what are the teachers looking for?
-        appropriate conclusion?
-        --how to give proper credit (bokeh world map patches)
-        --do I need a script to create ./graphs
-        --appropriate output
+* what are the teachers looking for?
+* appropriate conclusion?
+* --how to give proper credit (bokeh world map patches)
+* --do I need a script to create ./graphs
+* --appropriate output
