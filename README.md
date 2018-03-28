@@ -14,7 +14,7 @@
 
 * additional notes: 
 
-> * put the following files in the same dir:
+> Put the following files in the same dir:
 > 1) create_sql.py
 > 2) graphs.py
 > 3) Meteorite_Landings.csv
