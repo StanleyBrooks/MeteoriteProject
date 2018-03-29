@@ -15,7 +15,7 @@
 
 ###### How to run the project: 
 
-1)  Put the following files in the same dir:
+1)  Put the following files in the same directory:
 >> * create_sql.py
 >> * graphs.py
 >> * Meteorite_Landings.csv -This is a copy of the dataset that be downloaded at https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
