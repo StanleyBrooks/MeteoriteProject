@@ -6,7 +6,7 @@ from create_sql import close_sqlite_db
 from graphs import visualizations_year_frequency
 from graphs import visualizations_year_max_mass
 
-from world_map import world_map
+from world_map import world_maps
 
 #terminal output formatting
 line_break = ('=' * 50)
@@ -21,7 +21,7 @@ def main():
     close_sqlite_db()
     visualizations_year_frequency()
     visualizations_year_max_mass()
-    world_map()
+    world_maps()
     """
 
     print(line_break)
@@ -79,7 +79,8 @@ def main():
     print('Creating World Map with Bokeh')
     print(line_break)
 
-    world_map()
+    #Bokeh maps (one mapped from json, the other with googles API)
+    world_maps()
 
     print('World Map created successfully')
     print(line_break)
