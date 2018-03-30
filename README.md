@@ -31,15 +31,25 @@ By: Stanley Brooks 3/30/2018
 
 3) RUN the script `ProjectRUN.py`
 
-4) The terminal will give you further information on script, create an sqlite database and output graphs to ./graphs
+4) The terminal will give you further information on script, create an sqlite database and output graphs to `./graphs`
 
 <br></br>
-# <center>Outline of Project & Project Requirements
+
+---
+## <center> Data Set:
+
+The csv file used for this programs is a comprehensive list of known meteorite landings from the Meteoritical Society.  there is a copy in this repo, but you can always grab the source from:
+
+https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
+
+<br></br>
+
+# <center>Project Requirements
 
 #### 1)  Problem that I am analyzing: 
 
     
-* Are the frequency of all meteorite landings equally distributed?
+* Are the frequency of meteorite landings equally distributed?
 
 * Are the meteorites masses the same size on average now as they have been in the past?
   - Are meteorites heavier now then they have been in the past?
@@ -49,17 +59,6 @@ By: Stanley Brooks 3/30/2018
 
 * Are the geographical locations of Meteorite Landings equally distributed worldwide?
 
----
-## <center> Brief Overview:
-
-I hope to accomplish these questions by using a comprehensive list of known meteorite landings from the Meteoritical Society
-that can be obtained at https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
-From this data I have primarily used the information about the date, mass and locations (lat and long) of meteorites to figure:
-    
-* the amount of meteorites that fall each year
-* The mass(kg) of meteorites for each year
-* Geographic Locations (lat, long) of each meteorite
-
 <br></br>
 
 ---
@@ -67,7 +66,8 @@ From this data I have primarily used the information about the date, mass and lo
 AND
 #### 3)  You must include a Python script used to fetch data from a data source and load it into your SQL database
 ---
-* This snippet of code creates a meteo.db sqlite database opens the csv file in read mode and passes it to a csv reader
+* This snippet of code creates a meteo.db sqlite database opens the csv file in read mode and passes it to a csv reader.  This snippit is located in `create_sql.py`:
+
 ```python
         sql = sqlite3.connect('meteo.db')
         cur = sql.cursor()
@@ -77,7 +77,7 @@ AND
 
 ```
 
-* This snippet of code creates the main table (meteorite_data) from the csv file.  There are also several other smaller tables created from the information in this table like (count and total_mass_kg)
+* This snippet of code creates the main table (meteorite_data) from the csv file.  There are also several other smaller tables created from the information in this table like (count and total_mass_kg). This snippit is located in `create_sql.py`:
 
 ```python
 def create_sqlite_table():
@@ -104,7 +104,7 @@ def create_sqlite_table():
 #### 4)  You must include a Python script to retrieve the data from your SQL database into a Python object
 ---
 
-* This is primarily located in the graphs.py file that is included.  Data is taken from the SQL database and loaded into a pandas python object (dataframe) to be further processed(cleaned) and passed to matplotlib and bokeh for graphing
+* This is primarily located in the `graphs.py` file that is included.  Data is taken from the SQL database and loaded into a pandas python object (dataframe) to be further processed(cleaned) and passed to matplotlib and bokeh for graphing
 
 ```python
         conn = sqlite3.connect('meteo.db')
@@ -118,7 +118,7 @@ def create_sqlite_table():
 #### 5)  You must include a Python script to modify your data so as to prepare it for visualization
 
 ---
-* This happens in 2 places in the project.  The first time is in the create_sql.py file (specifically in the function clean_empty_values) and is done through sqlite querries to remove rows with null values so the csv data can be succesfully passed to the sqlite database (meteo.db)
+* This happens in several places throughout the project.  The first time is in `create_sql.py` (specifically in the function `clean_empty_values()`) and is also done through sqlite querries to remove rows with null values so the csv data can be succesfully passed to the sqlite database (meteo.db)
 ```python
         cur.execute('''DELETE FROM meteorite_data WHERE(name IS NULL OR name  = '') 
                         OR (mass IS NULL OR mass = '') OR (year IS NULL OR year = '') 
@@ -147,7 +147,8 @@ def create_sqlite_table():
         meteorites['count'] = meteorites['count'].astype(int)
 ```
 
-* This is to get rid of a lingering incorrect year from the future\
+* This is to get rid of a lingering incorrect year from the future(likely an entry error)
+
 ```python
         meteorites = meteorites[meteorites.year_only <= 2018]
 
@@ -155,20 +156,17 @@ def create_sqlite_table():
 <br></br>
 #### 6)  Visualize the results of your analysis using Matplotlib, Seaborn, Bokeh or another Python Data Visualization library. Your results cannot be a plaintext representation and you are encouraged to explore a visualization approach that clearly supports a conclusion/result of the analysis of your data.
 ---
-* Multiple graphs are made using matplotlib and bokeh, they are sent to the /graphs directory when the script is ran.
+* Multiple graphs are made using matplotlib, they are sent to the /graphs directory when the script is ran.  Pre ran copies of all graphs are located in the /graph folder on github, but they are simply the last generated output since my last git push.  The folder must exist for the script to run, but none of the graphs are necessary, they are generated dynamically from the csv file.
 
-
-TESTING:This script has been tested on multiple computers and should work just fine on and windows machine.  I have not tested it in a mac or unix environment, however it should work just fine (hopefully)
-
-<br></br>
 ---
+## Matplot lib Graphs
+---
+This is the last output generated by `ProjectRUN.py`.  These files are generated when the script runs, if there are files with the same name, they will be overwritten.
 
-### Matplot lib Graphs
+## <center> Frequency per year
 
 <div>
----
-Frequency per year
----
+<center>
 
 ![Bar graph of the frequency that meteorites have hit the earth in the last 50 years](/graphs/frequency_bar_last_50.png "Bar graph of the frequency that meteorites have hit the earth in the last 50 years")
 
@@ -178,85 +176,76 @@ Frequency per year
 
 ![Line graph of the frequency that meteorite have hit the earth in the entire data set](/graphs/frequency_line.png "Line graph of the frequency that meteorite have hit the earth in the entire data set")
 
----
+
 Maximum mass per year
----
+
 
 ![Bar graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_bar_last_50.png "Bar graph of the maximum mass of meteorites per year for the last 50 years")
 
 ![Line graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_line_last_50.png "Line graph of the maximum mass of meteorites per year for the last 50 years")
 
----
+
 
 ![Bar graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_bar.png "Bar graph of the maximum mass of meteorites per year for the entire data set")
 
 ![Line graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_line.png "Line graph of the maximum mass of meteorites per year for the entire data set")
 
----
+
+</center>
 </div>
 
 ### Bokeh 
 Visualizations will pop out at the end when you run when you run `ProjectRUN.py`
 
 They include:
-* world_map_json() - This a uses patches to map country shapes (using json data) onto a graph which can then be used to plot lattitude and longitude.  This script is a modified version of the Treehouse Python course 'Data Visualization with Bokeh' in the video 'Plotting the World' and was very useful.  The patches json data was created by Johan Sundstrom and can be located at https://github.com/johan/world.geo.json.
+* `world_map_json()` - This a uses patches to map country shapes (using json data) onto a graph which can then be used to plot lattitude and longitude.  This script is a modified version of the Treehouse Python course 'Data Visualization with Bokeh' in the video 'Plotting the World' and was very useful.  The patches json data was created by Johan Sundstrom and can be located at https://github.com/johan/world.geo.json.
 
-* world_map_google() - This uses the google maps API to graph all of the meteorite landings on the world.  I set the starting geolocation at my location, but in the future I plan to update this map to start at the users geolocation.
+* `world_map_google()` - This uses the google maps API to graph all of the meteorite landings on the world.  I set the starting geolocation at my location, but in the future I plan to update this map to start at the users geolocation.
 
-# <center> CONCLUSION:(outline)
+# <center> Conclusion
 
-* Line of Best Fit:
+<center>
+
 ![Line of best fit](/graphs/frequency_line_last_50_lob.png "Line of best fit overtop of frequency / time")
 
+</center>
+
 ```python
-plt.plot(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)), label="Line of Best Fit", linestyle='--', color="red")
+(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)))
 ```
 
-* Are meteorite landings happening at a faster rate now then they have been in the past?
- - The data is mixed, it appears that there have been more meteorites recorded in the past 50 years but that can be explained by many different factors.
- 
- 
-* Are meteorites heavier now (mass) then they have been in the past?
-- Other than a couple of outliers and plenty of reasons why we record more data now than in the past, it does not appear that meteorites are heavier now than they used to be.
+This is by no means a perfect representation of the data, but appears to support the theory that most data falls within a reasonable deviation.
 
+---
 
-* Are individual meteorites heavier now then they have been in the past?
-- Nope, although there are a couple of years where some really giant ones hit (assuming that the data is correct(could be incorrect entry, more data bais))
+### Are the frequency of all meteorite landings equally distributed?
+>> * The data is mixed, It appears that we have had an explosion of records over the last 50 years in the data set but this doesn't necessarily translate to having more meteorite landings.  
 
+Within the last 50 years of the data set there appears to be an upward trend in the frequency meteorite landings are recorded, but there are also lots of explanations that could explain these trends.
 
-* Are Meteorite Landings equally distributed worldwide?
-- Yes
+As for the entire data set, advances in telescopes and general technology would explain why there would be so many more records in the past 50 years.  
 
+As for recent history, the vast majority of the data falls within one standard deviation of the median which leads me to belive that meteorites are likely falling at a similar rate as always.  
 
--Reasons for discrepancies could be:
-    some countries are better able to record meteorites in a percise way
-    data collecting bias
-    data accuracy (don't forget about thoes entries containing null values that were discarded)
+### Are the meteorites masses the same size as they have been in the past?
 
-<br><br><br><br><br><br>
-***************************************************************
-***************************************************************
-***************************************************************
+>> * Other than a couple of outliers and plenty of reasons why we record more data now than in the past, it does not appear that meteorites are heavier now than they used to be.  If there are any trends, it likely has more to do with record errors, data entry or just a sheer outlier.
 
-* Are the frequency of all meteorite landings equally distributed?
+### Are the geographical locations of Meteorite Landings equally distributed worldwide?
+>> * Not really, but they made for a pretty fun google map project.  One of my favorite parts of this project was learning to use the google maps API with bokeh.
 
-* Are the meteorites masses the same size on average now as they have been in the past?
-  - Are meteorites heavier now then they have been in the past?
-  >- mass = (kg)
-  >- now = (last 50 years)
-  >- past = (entire dataset)
+I hope you have enjoyed looking at my project as I did working on it.  It was really interesting to work through all of the puzzle pieces that became this final project.
 
-* Are the geographical locations of Meteorite Landings equally distributed worldwide?
+---
 
-***************************************************************
-***************************************************************
-***************************************************************
-<br><br><br><br><br><br><br>
+# Reasons everything could be wrong:
 
-# <center>Final Todo list:</center>
+Reasons for discrepancies could be:
+- some countries are better able to record meteorites in a percise way
+- data collecting bias
+- data accuracy (don't forget about thoes entries containing null values that were discarded)
 
-Currently working on:
-* conclusion
-* update readme to include world_map.py(bokeh) information and source credit
-* pep8 everything
-* more informative comments to explain all of the pieces    
+# What I have learned and where does this project go from here?
+
+There are lots of ways that this project could be improved upon moving forward.  This script uses several different libraries to accomplish similar things, I did that to dabble around in the current python environment to learn common solutions of frequent problems.  I really enjoyed learning to use the pandas library, I perticularly found the dataframe object to be useful in many ways.  I also found it very interesting from a work flow perspective to take a csv file, read it and load it into a db without manipulating it, and then working on various problems withint the sqlite database.  It felt pretty strange to send SQL querries through python at first, but then really started to make sense as I progressed through the project.
+
