@@ -176,9 +176,9 @@ TESTING:This script has been tested on multiple computers and should work just f
 
 
 
+### Matplot lib
 
 <div>
-
 ---
 Frequency per year
 ---
@@ -202,11 +202,15 @@ Max mass per year
 ![Line graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_line.png "Line graph of the maximum mass of meteorites per year for the entire data set")
 
 ---
-
-
-
-
 </div>
+
+### Bokeh 
+Visualizations will pop out at the end when you run when you run `ProjectRUN.py`
+
+They include:
+* world_map_json() - This a uses patches to map country shapes (using json data) onto a graph which can then be used to plot lattitude and longitude.  This script is a modified version of the Treehouse Python course 'Data Visualization with Bokeh' in the video 'Plotting the World' and was very useful.  The patches json data was created by Johan Sundstrom and can be located at https://github.com/johan/world.geo.json.
+
+* world_map_google() - This uses the google maps API to graph all of the meteorite landings on the world.  I set the starting geolocation at my location, but in the future I plan to update this map to start at the users geolocation.
 
 # <center> CONCLUSION:(outline)
 
