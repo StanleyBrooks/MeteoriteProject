@@ -180,10 +180,11 @@ TESTING:This script has been tested on multiple computers and should work just f
 <div><center>
 
 ![Bar graph of the number of meteorites that hit the earth each year](/graphs/frequency_bar_last_50.png "Frequency of Meteorites per Year")
-![](/graphs/frequency_bar_last_50.png)
+
 ![](/graphs/frequency_line.png)
 ![](/graphs/frequency_line_last_50.png)
 ![](/graphs/year_max_mass_bar.png)
+![](/graphs/year_max_mass_bar_last_50.png)
 ![](/graphs/year_max_mass_line.png)
 ![](/graphs/year_max_mass_line_last_50.png)
 
