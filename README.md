@@ -187,10 +187,12 @@ Frequency per year
 
 ![Line graph of the frequency that meteorites have hit the earth in the last 50 years](/graphs/frequency_line_last_50.png "Line graph of the frequency that meteorites have hit the earth in the last 50 years")
 
+![Bar graph of the frequency that meteorite have hit the earth in the entire data set](/graphs/frequency_bar.png "Bar graph of the frequency that meteorite have hit the earth in the entire data set")
+
 ![Line graph of the frequency that meteorite have hit the earth in the entire data set](/graphs/frequency_line.png "Line graph of the frequency that meteorite have hit the earth in the entire data set")
 
 ---
-Max mass per year
+Maximum mass per year
 ---
 
 ![Bar graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_bar_last_50.png "Bar graph of the maximum mass of meteorites per year for the last 50 years")
