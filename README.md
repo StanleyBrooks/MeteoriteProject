@@ -163,20 +163,7 @@ TESTING:This script has been tested on multiple computers and should work just f
 <br></br>
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Matplot lib
+### Matplot lib Graphs
 
 <div>
 ---
@@ -217,6 +204,13 @@ They include:
 * world_map_google() - This uses the google maps API to graph all of the meteorite landings on the world.  I set the starting geolocation at my location, but in the future I plan to update this map to start at the users geolocation.
 
 # <center> CONCLUSION:(outline)
+
+* Line of Best Fit:
+![Line of best fit](/graphs/frequency_line_last_50_lob.png "Line of best fit overtop of frequency / time")
+
+```python
+plt.plot(np.unique(x), np.poly1d(np.polyfit(x, y, 1))(np.unique(x)), label="Line of Best Fit", linestyle='--', color="red")
+```
 
 * Are meteorite landings happening at a faster rate now then they have been in the past?
  - The data is mixed, it appears that there have been more meteorites recorded in the past 50 years but that can be explained by many different factors.
