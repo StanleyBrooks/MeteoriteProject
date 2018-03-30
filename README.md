@@ -162,6 +162,25 @@ TESTING:This script has been tested on multiple computers and should work just f
 
 <br></br>
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+![Bar graph of the number of meteorites that hit the earth each year](https://github.com/StanleyBrooks/MeteoriteProject/blob/master/graphs/frequency_bar.png "Frequency of Meteorites per Year")
+
+
 # <center> CONCLUSION:(outline)
 
 * Are meteorite landings happening at a faster rate now then they have been in the past?
