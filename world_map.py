@@ -69,10 +69,12 @@ def world_maps():
         #make graph that is bound by Geographic Coordinates
         world_map_plot = figure(plot_width=900,
                                 plot_height=600,
-                                title="Meteorite Landings",
+                                title="Meteorite Landings Worldwide using JSON data for country shapes",
                                 tools=TOOLS,
                                 x_range=(-180, 180),
-                                y_range=(-90, 90))
+                                y_range=(-90, 90),
+                                x_axis_label = "Longitude",
+                                y_axis_label = "Latitude")
 
 
         #This applies the geometic shapes to a lat,long grid
@@ -106,13 +108,8 @@ def world_maps():
         map_options = GMapOptions(lat=38.229660599999995, lng=-85.7405836, map_type="terrain", zoom=6)
 
         world_map_plot = GMapPlot(x_range=Range1d(), y_range=Range1d(), map_options=map_options)
-        world_map_plot.title.text = "Meteorite Landing Locations"
+        world_map_plot.title.text = "Meteorite Landing Locations Worldwide"
 
-        # For GMaps to function, Google requires you obtain and enable an API key:
-        #
-        #     https://developers.google.com/maps/documentation/javascript/get-api-key
-        #
-        # Replace the value below with your personal API key:
         world_map_plot.api_key = "AIzaSyCTH9aO_DdSi_OxiZtuj7xie8-5kHzjjeg"
 
         data=dict(lat=meteorites_geo['reclat'],lon=meteorites_geo['reclong'])
