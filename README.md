@@ -199,6 +199,7 @@ Max mass per year
 ---
 
 ![Bar graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_bar.png "Bar graph of the maximum mass of meteorites per year for the entire data set")
+
 ![Line graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_line.png "Line graph of the maximum mass of meteorites per year for the entire data set")
 
 ---
