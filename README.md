@@ -209,20 +209,20 @@ This is by no means a perfect representation of the data, but appears to support
 ---
 
 ### Is the frequency of meteorite landings equally distributed?
->> The data is mixed, It appears that we have had an explosion of records over the last 50 years in the data set but this doesn't necessarily translate to having more meteorite landings.  
+> The data is mixed, It appears that we have had an explosion of records over the last 50 years in the data set but this doesn't necessarily translate to having more meteorite landings.  
 
->> Within the last 50 years of the data set there appears to be an upward trend in the frequency meteorite landings are recorded, but there are also lots of explanations that could explain these trends.
+> Within the last 50 years of the data set there appears to be an upward trend in the frequency meteorite landings are recorded, but there are also lots of explanations that could explain these trends.
 
->> As for the entire data set, advances in telescopes and general technology would explain why there would be so many more records in the past 50 years.  
+> As for the entire data set, advances in telescopes and general technology would explain why there would be so many more records in the past 50 years.  
 
->> As for recent history, the vast majority of the data falls within one standard deviation of the median which leads me to believe that meteorites are likely falling at a similar rate as always.  
+> As for recent history, the vast majority of the data falls within one standard deviation of the median which leads me to believe that meteorites are likely falling at a similar rate as always.  
 
 ### Are the meteorites masses the same size as they have been in the past?
 
->> Other than a couple of outliers and plenty of reasons why we record more data now than in the past, it does not appear that meteorites are heavier now than they used to be.  If there are any trends, it likely has more to do with record errors, data entry or just sheer outliers.
+> Other than a couple of outliers and plenty of reasons why we record more data now than in the past, it does not appear that meteorites are heavier now than they used to be.  If there are any trends, it likely has more to do with record errors, data entry or just sheer outliers.
 
 ### Are the geographical locations of Meteorite Landings equally distributed worldwide?
->> Not really, but they made for a pretty fun google map project.  One of my favorite parts of this project was learning to use the google maps API with bokeh.
+> Not really, but they made for a pretty fun google map project.  One of my favorite parts of this project was learning to use the google maps API with bokeh.
 
 I hope you have enjoyed looking at my project as I did working on it.  It was really interesting to work through the puzzle pieces that eventually became this final project.
 
