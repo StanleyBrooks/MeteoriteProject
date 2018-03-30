@@ -195,7 +195,7 @@ Max mass per year
 
 ![Bar graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_bar_last_50.png "Bar graph of the maximum mass of meteorites per year for the last 50 years")
 
-![Line graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_line_last_50.png"Line graph of the maximum mass of meteorites per year for the last 50 years")
+![Line graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_line_last_50.png "Line graph of the maximum mass of meteorites per year for the last 50 years")
 
 ---
 
