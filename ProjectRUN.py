@@ -14,15 +14,15 @@ line_break_fancy = ('*' * 50)
 
 #This script runs the program and displays basic output to the user in the prompt
 def main():
-    """this script runs the following functions in the following order: 
-    create_sqlite_table()
-    clean_empty_values()
-    meteorite_frequency_table()
-    close_sqlite_db()
-    visualizations_year_frequency()
-    visualizations_year_max_mass()
-    world_maps()
-    """
+    #this script runs the following functions in the following order: 
+    #create_sqlite_table()
+    #clean_empty_values()
+    #meteorite_frequency_table()
+    #close_sqlite_db()
+    #visualizations_year_frequency()
+    #visualizations_year_max_mass()
+    # world_maps()
+    
 
     print(line_break)
     print('Creating SQLite Database...')
@@ -93,6 +93,6 @@ def main():
     print(line_break_fancy)
     print(line_break)
 
-#this makes the script main() as long as it is not being imported into another script.
+#this makes the script main() run as long as it is not being imported from another script.
 if __name__ == '__main__':
     main()

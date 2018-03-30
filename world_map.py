@@ -29,9 +29,9 @@ def world_maps():
     output_file("./graphs/world-map.html", title="Worldwide Meteorite Landings")
 
     #This section uses Bokeh patches and json data of country boundries to map the world.  This code
-    # is a modified version of a project worked on by Ken Alger in the treehouse.com tutorial 
-    # 'Data Visualization with Bokeh' in the video 'Plotting the World'.  The map of the world
-    # comes from Johan Sundström who has a github at https://github.com/johan/world.geo.json
+    #is a modified version of a project worked on by Ken Alger in the treehouse.com tutorial 
+    #'Data Visualization with Bokeh' in the video 'Plotting the World'.  The map of the world
+    #comes from Johan Sundström who has a github at https://github.com/johan/world.geo.json
 
     def world_map_json():
         url = 'https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json'
@@ -110,6 +110,7 @@ def world_maps():
         world_map_plot = GMapPlot(x_range=Range1d(), y_range=Range1d(), map_options=map_options)
         world_map_plot.title.text = "Meteorite Landing Locations Worldwide"
 
+        #This is an individualized key that you must register to get
         world_map_plot.api_key = "AIzaSyCTH9aO_DdSi_OxiZtuj7xie8-5kHzjjeg"
 
         data=dict(lat=meteorites_geo['reclat'],lon=meteorites_geo['reclong'])

@@ -242,6 +242,7 @@ There are lots of ways that this project could be improved upon moving forward. 
 I also found it very interesting from a work flow perspective to take a csv file, read it and load it into a sqlite db without manipulating it, and then working on various problems within the sqlite database.  It felt pretty strange to send SQL queries through python at first, but then really started to make sense as I progressed through the project.
 
 Features to add in the future:
+* a script to automatically create file structure (wrote code but need to test on non-win operating systems)
 * menu for a user to interact
 * get users geolocation and set it as the default google maps location
 * slim down code and weed out duplicate code
