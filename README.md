@@ -1,59 +1,68 @@
+<div style="text-align: right">
+By: Stanley Brooks 3/30/2018
+</div>
+
 # <center>Meteorite Landings Data Analysis
 ### <center>CodeLouisville Project - Python for Data
 
-<br></br>
-###### This project requires:
 
->> * bokeh - to graph data
->> * csv - to read source file
->> * json - for the world graph (json data creates country borders)
->> * matplotlib - to graph data
->> * numpy - to help process and graph data
->> * pandas - to help clean and graph data (I found the pandas dataframe to be very helpful while cleaning and interacting with the dataset)
->> * requests - used to gather json data from website (for bokeh patches of country boarders)
->> * sqlite3 - to create and interact with a sqlite database
+### This project requires:
 
-###### How to run the project: 
+>> * `bokeh` - to graph data
+>> * `csv`- to read source file
+>> * `json` - for the world graph (json data creates country borders)
+>> * `matplotlib` - to graph data
+>> * `numpy` - to help process and graph data
+>> * `pandas` - to help clean and graph data (I found the pandas dataframe to be very helpful while cleaning and interacting with the dataset)
+>> * `requests` - used to gather json data from website (for bokeh patches of country boarders)
+>> * `sqlite3` - to create and interact with a sqlite database
+
+### How to run the project: 
 
 1)  Put the following files in the same directory:
->> * create_sql.py
->> * graphs.py
->> * Meteorite_Landings.csv -This is a copy of the dataset that be downloaded at https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
->> * This csv file is not edited during the process, it is loaded into a sqlite database where all cleaning and calculations take place.
->> * ProjectRUN.py
->> * world_map.py
->> * README.MD
+>> * `create_sql.py`
+>> * `graphs.py`
+>> * `Meteorite_Landings.csv` -This is a copy of the dataset that can also be downloaded at https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
+>> * `ProjectRUN.py`
+>> * `world_map.py`
+>> * `README.MD`
 
-2) There must also be a folder named 'graphs' in the main directory, it can be empty
+2) There must also be a folder named `'graphs'` in the main directory, it can be empty
 
-3) RUN the script ProjectRUN.py
+3) RUN the script `ProjectRUN.py`
 
 4) The terminal will give you further information on script, create an sqlite database and output graphs to ./graphs
 
 <br></br>
 # <center>Outline of Project & Project Requirements
 
-<br></br>
 #### 1)  Problem that I am analyzing: 
----
-    
-* Are meteorite landings happening at a faster rate now then they have been in the past?
-* Are meteorites heavier now (mass) then they have been in the past? 
-* Are individual meteorites heavier now then they have been in the past?
-* Are Meteorite Landings equally distributed worldwide?
 
-## <center> Brief Overview:
     
+* Are the frequency of all meteorite landings equally distributed?
+
+* Are the meteorites masses the same size on average now as they have been in the past?
+  - Are meteorites heavier now then they have been in the past?
+  >- mass = (kg)
+  >- now = (last 50 years)
+  >- past = (entire dataset)
+
+* Are the geographical locations of Meteorite Landings equally distributed worldwide?
+
+---
+## <center> Brief Overview:
+
 I hope to accomplish these questions by using a comprehensive list of known meteorite landings from the Meteoritical Society
 that can be obtained at https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9.
 From this data I have primarily used the information about the date, mass and locations (lat and long) of meteorites to figure:
     
 * the amount of meteorites that fall each year
-* The combined mass(kg) of meteorites for each year
+* The mass(kg) of meteorites for each year
 * Geographic Locations (lat, long) of each meteorite
 
-
 <br></br>
+
+---
 #### 2)  Include SQL database where your data will be stored and manipulated.  You need to include a script that sets up/creates your database
 AND
 #### 3)  You must include a Python script used to fetch data from a data source and load it into your SQL database
@@ -66,26 +75,28 @@ AND
         next(csv_file, None)
         reader = csv.reader(csv_file)
 
-        def create_sqlite_table():
 ```
 
 * This snippet of code creates the main table (meteorite_data) from the csv file.  There are also several other smaller tables created from the information in this table like (count and total_mass_kg)
 
 ```python
-        cur.execute('''CREATE TABLE IF NOT EXISTS meteorite_data
-                    (name TEXT UNIQUE, 
-                    meteo_id INTIGER PRIMARY KEY,
-                    nametype TEXT, 
-                    recclass TEXT,
-                    mass REAL, 
-                    fall TEXT, 
-                    year DATETIME, 
-                    reclat REAL,
-                    reclong REAL, 
-                    GeoLocation REAL);''')
+def create_sqlite_table():
 
-        for row in reader:
-            cur.execute('''INSERT INTO meteorite_data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', row)
+    cur.execute('''DROP TABLE IF EXISTS meteorite_data''')
+    cur.execute('''CREATE TABLE IF NOT EXISTS meteorite_data
+                (name TEXT UNIQUE, 
+                meteo_id INTIGER PRIMARY KEY,
+                nametype TEXT, 
+                recclass TEXT,
+                mass REAL, 
+                fall TEXT, 
+                year DATETIME, 
+                reclat REAL,
+                reclong REAL, 
+                GeoLocation REAL);''')
+
+                for row in reader:
+                cur.execute('''INSERT INTO meteorite_data VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);''', row)
 
 ```
 
@@ -117,7 +128,7 @@ AND
 
 
 
-* The second time this happens is after the data is pulled out of the sqlite database and inserted into a python object (pandas dataframe) in graphs.py.  This is done to further clean the data in preperation for graphing.  Most of the issues I ran into were with the date column, which contained dates that all started with 1/1/(year).  The month and day paramaters were just place holders, so I employed several stratagies to remove the superfluous data.
+* The second time this happens is after the data is pulled out of the sqlite database and inserted into a python object (pandas dataframe) in `graphs.py`.  This is done to further clean the data in preperation for graphing.  Most of the issues I ran into were with the date column, which contained dates that all started with 1/1/(year).  The month and day paramaters were just place holders, so I employed several stratagies to remove the superfluous data.
             
 * Convert year to datetime then remove NA values
 ```python
@@ -141,7 +152,6 @@ AND
         meteorites = meteorites[meteorites.year_only <= 2018]
 
 ```
-
 <br></br>
 #### 6)  Visualize the results of your analysis using Matplotlib, Seaborn, Bokeh or another Python Data Visualization library. Your results cannot be a plaintext representation and you are encouraged to explore a visualization approach that clearly supports a conclusion/result of the analysis of your data.
 ---
@@ -174,8 +184,26 @@ TESTING:This script has been tested on multiple computers and should work just f
     some countries are better able to record meteorites in a percise way
     data collecting bias
     data accuracy (don't forget about thoes entries containing null values that were discarded)
-    
 
+<br><br><br><br><br><br>
+***************************************************************
+***************************************************************
+***************************************************************
+
+* Are the frequency of all meteorite landings equally distributed?
+
+* Are the meteorites masses the same size on average now as they have been in the past?
+  - Are meteorites heavier now then they have been in the past?
+  >- mass = (kg)
+  >- now = (last 50 years)
+  >- past = (entire dataset)
+
+* Are the geographical locations of Meteorite Landings equally distributed worldwide?
+
+***************************************************************
+***************************************************************
+***************************************************************
+<br><br><br><br><br><br><br>
 
 # <center>Final Todo list:</center>
 
@@ -184,10 +212,3 @@ Currently working on:
 * update readme to include world_map.py(bokeh) information and source credit
 * pep8 everything
 * more informative comments to explain all of the pieces    
-
-Questions for class:
-* what are the teachers looking for?
-* appropriate conclusion?
-* --how to give proper credit (bokeh world map patches)
-* --do I need a script to create ./graphs
-* --appropriate output
