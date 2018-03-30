@@ -88,7 +88,7 @@ def visualizations_year_frequency():
         plt.ylabel('Frequency')
         plt.title('Number of Meteorites per Year')
         plt.grid(True)
-        plt.savefig("graphs/frequency_bar.png")
+        plt.savefig("graphs/frequency_bar_last_50.png")
         plt.show()
 
 
