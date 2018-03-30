@@ -37,7 +37,7 @@ By: Stanley Brooks 3/30/2018
 ---
 ## <center> Data Set:
 
-This data set was created by the Meteoritical Society and it contains information on all known meteorite landings. The information is from October 29, 2015 and contains 45.7K rows(Before null values are removed). After processing the dataset and deleting lots of NULL values, it ended up closer to 31.6k entries https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9
+This data set was created by the Meteoritical Society and it contains information on all known meteorite landings. The information is from October 29, 2015 and contains 45.7K rows(Before null values are removed). After processing the dataset and deleting lots of NULL values, it ended up closer to 38k entries https://data.nasa.gov/Space-Science/Meteorite-Landings/ak9y-cwf9
 
 There is csv file contained in this repo for convience, however it is not modified at any point.  The idea was to load it into a sqlite database and manipulate the data from there.  That way, as data is update in the csv file, the corosponding sqlite database and graphs would also update correctly.
 
@@ -227,14 +227,14 @@ I hope you have enjoyed looking at my project as I did working on it.  It was re
 
 ---
 
-### Reasons everything could be wrong:
+#### Reasons everything could be wrong:
 
 Reasons for discrepancies could be:
 - some countries are better able to record meteorites in a precise way
 - data collecting bias
 - data accuracy (don't forget about those entries containing null values that were discarded)
 
-# What I have learned and where does this project go from here?
+#### What I have learned and where does this project go from here?
 
 There are lots of ways that this project could be improved upon moving forward.  This script uses several different libraries to accomplish similar things, I did this on purpose; to dabble around in the current python environment to learn common solutions to frequent problems.  I really enjoyed learning to use the pandas library, I particularly found the dataframe object to be useful in many ways.  I also found it very interesting from a work flow perspective to take a csv file, read it and load it into a sqlite db without manipulating it, and then working on various problems within the sqlite database.  It felt pretty strange to send SQL queries through python at first, but then really started to make sense as I progressed through the project.
 
