@@ -28,76 +28,129 @@ def visualizations_year_frequency():
     last_50_years = meteorites_frequency[0:50]
 
 
-    def matplotlib_frequency_line():
+    def matplotlib_frequency_bar_last_50():
 
-        """Matplotlib line graph showing frequency per year"""
-        x = meteorites_frequency['year_only']
-        y = meteorites_frequency['count']
+        """Matplotlib bar graph showing frequency per year (Last 50 Years)"""
+        x = np.array(last_50_years['year_only'])
+        y = np.array(last_50_years['count'])
+
+        #Set the graph axis (Dont want it to go under 0 for y(median - std messes with the ymin))
+        plt.ylim([0,last_50_years['count'].max()])
+        plt.xlim([(last_50_years['year_only'].min()), (last_50_years['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
+
+        plt.bar(x, y)
+        plt.xlabel('Time (Years)')
+        plt.ylabel('Frequency of Meteorite Landings')
+        plt.title('Frequency of Meteorite Landings In The Last 50 Years')
+        plt.grid(True)
+        plt.savefig("graphs/frequency_bar_last_50.png")
+
+        
+
+        plt.show()
+
+    def matplotlib_frequency_line_last_50():
+
+        """Matplotlib line graph showing frequency per year (Last 50 Years)"""
+        x = np.array(last_50_years['year_only'])
+        y = np.array(last_50_years['count'])
+
+        #Set the graph axis
+        plt.ylim([0,last_50_years['count'].max()])
+        plt.xlim([(last_50_years['year_only'].min()), (last_50_years['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
 
         plt.plot(x, y)
 
         plt.xlabel('Time (Years)')
-        plt.ylabel('Frequency')
-        plt.title('Number of Meteorite Landings per Year')
+        plt.ylabel('Frequency of Meteorite Landings')
+        plt.title('Frequency of Meteorite Landings In The Last 50 Years')
+        plt.grid(True)
+        plt.savefig("graphs/frequency_line_last_50.png")
+        plt.show()
+
+    def matplotlib_frequency_bar():
+
+        """Matplotlib bar graph showing frequency per year"""
+        x = np.array(meteorites_frequency['year_only'])
+        y = np.array(meteorites_frequency['count'])
+
+        #Set the graph axis
+        plt.ylim([0,meteorites_frequency['count'].max()])
+        plt.xlim([(meteorites_frequency['year_only'].min()), (meteorites_frequency['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
+
+        plt.bar(x, y)
+
+        plt.xlabel('Time (Years)')
+        plt.ylabel('Frequency of Meteorite Landings')
+        plt.title('Frequency of Meteorite Landings In The Entire Data Set')
+        plt.grid(True)
+        plt.savefig("graphs/frequency_bar.png")
+        plt.show()
+
+    def matplotlib_frequency_line():
+
+        """Matplotlib line graph showing frequency per year"""
+        x = np.array(meteorites_frequency['year_only'])
+        y = np.array(meteorites_frequency['count'])
+
+        #Set the graph axis
+        plt.ylim([0,meteorites_frequency['count'].max()])
+        plt.xlim([(meteorites_frequency['year_only'].min()), (meteorites_frequency['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
+
+        plt.plot(x, y)
+
+        plt.xlabel('Time (Years)')
+        plt.ylabel('Frequency of Meteorite Landings')
+        plt.title('Frequency of Meteorite Landings In The Entire Data Set')
         plt.grid(True)
         plt.savefig("graphs/frequency_line.png")
         plt.show()
 
 
-    def matplotlib_frequency_line_last_50():
-
-        """Matplotlib line graph showing frequency per year"""
-        x = last_50_years['year_only']
-        y = last_50_years['count']
-
-        plt.plot(x, y)
-
-        plt.xlabel('Time (Years)')
-        plt.ylabel('Frequency')
-        plt.title('Number of Meteorite Landings per Year')
-        plt.grid(True)
-        plt.savefig("graphs/frequency_line_last_50.png")
-        plt.show()
-
-
-    def matplotlib_frequency_bar():
-
-        """Matplotlib bar graph showing frequency per year"""
-        x = meteorites_frequency['year_only']
-        y = meteorites_frequency['count']
-
-        plt.bar(x, y)
-
-        plt.xlabel('Time (Years)')
-        plt.ylabel('Frequency')
-        plt.title('Number of Meteorites per Year')
-        plt.grid(True)
-        plt.savefig("graphs/frequency_bar.png")
-        plt.show()
-
-
-    def matplotlib_frequency_bar_last_50():
-
-        """Matplotlib bar graph showing frequency per year"""
-        x = last_50_years['year_only']
-        y = last_50_years['count']
-
-        plt.bar(x, y)
-
-        plt.xlabel('Time (Years)')
-        plt.ylabel('Frequency')
-        plt.title('Number of Meteorites per Year')
-        plt.grid(True)
-        plt.savefig("graphs/frequency_bar_last_50.png")
-        plt.show()
-
-
     matplotlib_frequency_bar_last_50()
     matplotlib_frequency_line_last_50()
-    matplotlib_frequency_line()
     matplotlib_frequency_bar()
-    
-    
+    matplotlib_frequency_line()
 
 
 def visualizations_year_max_mass():
@@ -130,8 +183,22 @@ def visualizations_year_max_mass():
     def matplotlib_year_max_mass_line():
 
         """Matplotlib line graph showing frequency per year"""
-        x = meteorites_max_mass['year_only']
-        y = meteorites_max_mass['mass']
+        x = np.array(meteorites_max_mass['year_only'])
+        y = np.array(meteorites_max_mass['mass'])
+
+        #Set the graph axis
+        plt.ylim([0,meteorites_max_mass['mass'].max()])
+        plt.xlim([(meteorites_max_mass['year_only'].min()), (meteorites_max_mass['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
 
         plt.plot(x, y)
 
@@ -145,8 +212,22 @@ def visualizations_year_max_mass():
     def matplotlib_year_max_mass_bar():
 
         """Matplotlib bar graph showing frequency per year"""
-        x = meteorites_max_mass['year_only']
-        y = meteorites_max_mass['mass']
+        x = np.array(meteorites_max_mass['year_only'])
+        y = np.array(meteorites_max_mass['mass'])
+
+        #Set the graph axis
+        plt.ylim([0,meteorites_max_mass['mass'].max()])
+        plt.xlim([(meteorites_max_mass['year_only'].min()), (meteorites_max_mass['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
 
         plt.bar(x, y)
 
@@ -160,8 +241,22 @@ def visualizations_year_max_mass():
     def matplotlib_year_max_mass_line_last_50():
 
         """Matplotlib line graph showing frequency per year"""
-        x = last_50_years_max_mass['year_only']
-        y = last_50_years_max_mass['mass']
+        x = np.array(last_50_years_max_mass['year_only'])
+        y = np.array(last_50_years_max_mass['mass'])
+
+        #Set the graph axis
+        plt.ylim([0,last_50_years_max_mass['mass'].max()])
+        plt.xlim([(last_50_years_max_mass['year_only'].min()), (last_50_years_max_mass['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
 
         plt.plot(x, y)
         plt.xlabel('Time (Years)')
@@ -174,8 +269,22 @@ def visualizations_year_max_mass():
     def matplotlib_year_max_mass_bar_last_50():
 
         """Matplotlib bar graph showing frequency per year"""
-        x = last_50_years_max_mass['year_only']
-        y = last_50_years_max_mass['mass']
+        x = np.array(last_50_years_max_mass['year_only'])
+        y = np.array(last_50_years_max_mass['mass'])
+
+        #Set the graph axis
+        plt.ylim([0,last_50_years_max_mass['mass'].max()])
+        plt.xlim([(last_50_years_max_mass['year_only'].min()), (last_50_years_max_mass['year_only'].max())])
+
+        y_mean = [np.mean(y)]*len(x)
+        y_median = [np.median(y)]*len(x)
+        y_std = [np.std(y)]*len(x)
+
+        plt.plot(x, y_mean, label='Mean', linestyle='--', color="#4E6620")
+        plt.plot(x, y_median, label='Median', linestyle='--', color="orange")
+        plt.plot(x, y_std, label='Standard Deviation', linestyle='--', color="#FF0000")
+        plt.fill_between(x, y_median - np.std(y), y_median + np.std(y), label="One Standard Deviation from Median (-/+)", color="#D8F69E")
+        plt.legend(loc='upper right', prop={'size': 6})
 
         plt.bar(x, y)
 
