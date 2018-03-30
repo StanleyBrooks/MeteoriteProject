@@ -177,19 +177,34 @@ TESTING:This script has been tested on multiple computers and should work just f
 
 
 
-<div><center>
+<div>
 
-![Bar graph of the frequency that meteorites have hit the earth in the last 50 years](/graphs/frequency_bar_last_50.png "Frequency of Meteorites per Year(last 50 years)")
-![](/graphs/frequency_line.png)
+---
+Frequency per year
+---
 
-![](/graphs/year_max_mass_bar.png)
-![](/graphs/year_max_mass_line.png)
+![Bar graph of the frequency that meteorites have hit the earth in the last 50 years](/graphs/frequency_bar_last_50.png "Bar graph of the frequency that meteorites have hit the earth in the last 50 years")
+
+![Line graph of the frequency that meteorites have hit the earth in the last 50 years](/graphs/frequency_line_last_50.png "Line graph of the frequency that meteorites have hit the earth in the last 50 years")
+
+![Line graph of the frequency that meteorite have hit the earth in the entire data set](/graphs/frequency_line.png "Line graph of the frequency that meteorite have hit the earth in the entire data set")
+
+---
+Max mass per year
+---
+
+![Bar graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_bar_last_50.png "Bar graph of the maximum mass of meteorites per year for the last 50 years")
+![Line graph of the maximum mass of meteorites per year for the last 50 years](/graphs/year_max_mass_line_last_50.png"Line graph of the maximum mass of meteorites per year for the last 50 years")
+
+---
+
+![Bar graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_bar.png "Bar graph of the maximum mass of meteorites per year for the entire data set")
+![Line graph of the maximum mass of meteorites per year for the entire data set](/graphs/year_max_mass_line.png "Line graph of the maximum mass of meteorites per year for the entire data set")
+
+---
 
 
-![](/graphs/frequency_line_last_50.png)
 
-![](/graphs/year_max_mass_bar_last_50.png)
-![](/graphs/year_max_mass_line_last_50.png)
 
 </div>
 
