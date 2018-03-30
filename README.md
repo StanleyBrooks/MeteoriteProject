@@ -1,3 +1,4 @@
+
 <div style="text-align: right">
 By: Stanley Brooks 3/30/2018
 </div>
@@ -241,4 +242,7 @@ There are lots of ways that this project could be improved upon moving forward. 
 From here I would like to make a user interface for this program along with more user input, including their geolocation.  I will expand on my google maps bokeh visualization as well as general code and library reduction.
 
 
+---
+<div style="text-align: right">
 This project is under MIT license
+</div>
