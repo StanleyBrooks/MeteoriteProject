@@ -232,14 +232,21 @@ I hope you have enjoyed looking at my project as I did working on it.  It was re
 
 Reasons for discrepancies could be:
 - some countries are better able to record meteorites in a precise way
-- data collecting bias
+- data collection bias see: https://en.wikipedia.org/wiki/Bias_(statistics)
 - data accuracy (don't forget about those entries containing null values that were discarded)
 
-#### What I have learned and where does this project go from here?
+#### What I have enjoyed learning the most and where does this project go from here?
 
-There are lots of ways that this project could be improved upon moving forward.  This script uses several different libraries to accomplish similar things, I did this on purpose; to dabble around in the current python environment to learn common solutions to frequent problems.  I really enjoyed learning to use the pandas library, I particularly found the dataframe object to be useful in many ways.  I also found it very interesting from a work flow perspective to take a csv file, read it and load it into a sqlite db without manipulating it, and then working on various problems within the sqlite database.  It felt pretty strange to send SQL queries through python at first, but then really started to make sense as I progressed through the project.
+There are lots of ways that this project could be improved upon moving forward.  This script uses several different libraries to accomplish similar things, I did this on purpose; to dabble around in the current python ecosystem to learn common solutions to frequent problems.  I really enjoyed learning to use the pandas library, I particularly found the dataframe object to be useful in many ways, as well as numpy and datetime.  
 
-From here I would like to make a user interface for this program along with more user input, including their geolocation.  I will expand on my google maps bokeh visualization as well as general code and library reduction.
+I also found it very interesting from a work flow perspective to take a csv file, read it and load it into a sqlite db without manipulating it, and then working on various problems within the sqlite database.  It felt pretty strange to send SQL queries through python at first, but then really started to make sense as I progressed through the project.
+
+Features to add in the future:
+* menu for a user to interact
+* get users geolocation and set it as the default google maps location
+* slim down code and weed out duplicate code
+
+In the scope of this project it wasn't really necessary to interact with the user, but it is likely going to be my focus in the next couple of weeks..  I would also like to get the users geolocation and set it as the default google maps location for `world_map_google()`. 
 
 
 ---
